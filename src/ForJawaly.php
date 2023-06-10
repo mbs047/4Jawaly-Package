@@ -3,7 +3,6 @@
 namespace Devhereco\ForJawaly;
 
 use GuzzleHttp\Client;
-use Devhereco\ForJawaly\Models\SmsHistory;
 
 class ForJawaly
 {
@@ -12,7 +11,7 @@ class ForJawaly
         $app_id = config('forjawaly.key');
         $app_sec = config('forjawaly.secret');
         $app_hash = base64_encode("{$app_id}:{$app_sec}");
-
+        
         $messages = [
             "messages" => [
                 [
@@ -22,26 +21,23 @@ class ForJawaly
                 ]
             ]
         ];
-
+        
         $url = "https://api-sms.forjawaly.com/api/v1/account/area/sms/send";
         $headers = [
-            "Accept: application/json",
-            "Content-Type: application/json",
-            "Authorization: Basic {$app_hash}"
+            "Accept" => "application/json",
+            "Content-Type" => "application/json",
+            "Authorization" => "Basic {$app_hash}"
         ];
-
-        $curl = curl_init($url);
-        curl_setopt($curl, CURLOPT_POST, true);
-        curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($messages));
-        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
-        $response = curl_exec($curl);
-        $status_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-        curl_close($curl);
-
-        $response_json = json_decode($response, true);
-
+        
+        $client = new Client();
+        $response = $client->post($url, [
+            'headers' => $headers,
+            'json' => $messages
+        ]);
+        
+        $status_code = $response->getStatusCode();
+        $response_json = json_decode($response->getBody(), true);
+        
         if ($status_code == 200) {
             if (isset($response_json["messages"][0]["err_text"])) {
                 echo $response_json["messages"][0]["err_text"];
@@ -54,7 +50,7 @@ class ForJawaly
             echo "Message body is empty; Please write something.";
         } else {
             echo "Blocked by CloudFlare, Status code: {$status_code}";
-        }
+        }        
     }
 
     public static function balance()
