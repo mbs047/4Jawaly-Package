@@ -12,7 +12,7 @@ return [
   |
   */
 
-  'key' => env('4JAWALY_APP_KEY', Null),
+  'key' => env('FOR_JAWALY_APP_KEY', Null),
 
   /*
   |--------------------------------------------------------------------------
@@ -23,7 +23,7 @@ return [
   |
   */
 
-  'secret' => env('4JAWALY_SECRET', Null),
+  'secret' => env('FOR_JAWALY_SECRET', Null),
 
   /*
   |--------------------------------------------------------------------------
@@ -34,7 +34,7 @@ return [
   |
   */
 
-  'sender' => env('4JAWALY_SENDER', Null),
+  'sender' => env('FOR_JAWALY_SENDER', Null),
 
 
 ];

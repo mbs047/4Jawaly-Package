@@ -28,9 +28,9 @@ Devhereco\ForJawaly\ServiceProvider::class,
 ### 3. env variables
 
 ```sh
-4JAWALY_APP_KEY=
-4JAWALY_SECRET=
-4JAWALY_SENDER=
+FOR_JAWALY_APP_KEY=
+FOR_JAWALY_SECRET=
+FOR_JAWALY_SENDER=
 ```
 
 ## Usages
