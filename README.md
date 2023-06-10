@@ -25,18 +25,12 @@ Latest Laravel versions have auto dicovery and automatically add service provide
 Devhereco\ForJawaly\ServiceProvider::class,
 ```
 
-### 3. Migrations
+### 3. env variables
 
 ```sh
-php artisan migrate
-```
-
-### 4. env variables
-
-```sh
-4JAWALY_SMS_USERNAME=
-4JAWALY_SMS_PASSWORD=
-4JAWALY_SMS_SENDER=
+4JAWALY_APP_KEY=
+4JAWALY_SECRET=
+4JAWALY_SENDER=
 ```
 
 ## Usages
