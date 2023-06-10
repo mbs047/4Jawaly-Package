@@ -1,16 +1,16 @@
 <?php
 
-namespace Devhereco\4Jawaly;
+namespace Devhereco\ForJawaly;
 
 use GuzzleHttp\Client;
-use Devhereco\4Jawaly\Models\SmsHistory;
+use Devhereco\ForJawaly\Models\SmsHistory;
 
-class 4Jawaly
+class ForJawaly
 {
     public static function send(int $phone, ?string $message)
     {
-        $app_id = config('4jawaly.key');
-        $app_sec = config('4jawaly.secret');
+        $app_id = config('forjawaly.key');
+        $app_sec = config('forjawaly.secret');
         $app_hash = base64_encode("{$app_id}:{$app_sec}");
 
         $messages = [
@@ -18,12 +18,12 @@ class 4Jawaly
                 [
                     "text" => $message,
                     "numbers" => [$phone],
-                    "sender" => "4jawaly"
+                    "sender" => "forjawaly"
                 ]
             ]
         ];
 
-        $url = "https://api-sms.4jawaly.com/api/v1/account/area/sms/send";
+        $url = "https://api-sms.forjawaly.com/api/v1/account/area/sms/send";
         $headers = [
             "Accept: application/json",
             "Content-Type: application/json",
@@ -60,7 +60,7 @@ class 4Jawaly
     public static function balance()
     {
         $client = new Client();
-        $url = 'http://sms.malath.net.sa/api/getBalance.aspx?username=' . config('4jawaly.username') . '&password=' . config('4jawaly.password');
+        $url = 'http://sms.malath.net.sa/api/getBalance.aspx?username=' . config('forjawaly.username') . '&password=' . config('forjawaly.password');
 
         $res = $client->get($url);
         $body = $res->getBody();

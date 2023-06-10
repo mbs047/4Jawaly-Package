@@ -1,5 +1,5 @@
 {
-    "name": "devhereco/4jawaly",
+    "name": "devhereco/forjawaly",
     "description": "A Laravel package for 4 Jawaly SMS API.",
     "keywords": ["laravel", "firebase", "firebase", "sdk", "api", "database", "fcm", "gcm"],
     "type": "library",
@@ -12,13 +12,13 @@
     ],
     "autoload": {
         "psr-4": {
-            "Devhereco\\4Jawaly\\": "src/"
+            "Devhereco\\ForJawaly\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Devhereco\\4Jawaly\\ServiceProvider"
+                "Devhereco\\ForJawaly\\ServiceProvider"
             ]
         }
     },

@@ -1,6 +1,6 @@
 <?php
 
-namespace Devhereco\4Jawaly;
+namespace Devhereco\ForJawaly;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
@@ -8,17 +8,17 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     public function boot()
     {
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
-        $this->mergeConfigFrom(__DIR__.'/configs/4jawaly.php', '4jawaly');
+        $this->mergeConfigFrom(__DIR__.'/configs/forjawaly.php', 'forjawaly');
 
         $this->publishes([
-            __DIR__.'/configs/4jawaly.php' => config_path('4jawaly.php'),
+            __DIR__.'/configs/forjawaly.php' => config_path('forjawaly.php'),
         ]);
     }
 
     public function register()
     {
-        $this->app->singleton(4Jawaly::class, function () {
-            return new 4Jawaly();
+        $this->app->singleton(ForJawaly::class, function () {
+            return new ForJawaly();
         });
     }
 
