@@ -2,7 +2,7 @@
 
 namespace Devhereco\ForJawaly;
 
-use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Http;
 
 class ForJawaly
 {
@@ -29,14 +29,10 @@ class ForJawaly
             "Authorization" => "Basic {$app_hash}"
         ];
         
-        $client = new Client();
-        $response = $client->post($url, [
-            'headers' => $headers,
-            'json' => $messages
-        ]);
+        $response = Http::withHeaders($headers)->post($url, $messages);
+        $status_code = $response->status();
         
-        $status_code = $response->getStatusCode();
-        $response_json = json_decode($response->getBody(), true);
+        $response_json = $response->json();
         
         if ($status_code == 200) {
             if (isset($response_json["messages"][0]["err_text"])) {
@@ -50,7 +46,7 @@ class ForJawaly
             echo "Message body is empty; Please write something.";
         } else {
             echo "Blocked by CloudFlare, Status code: {$status_code}";
-        }        
+        }
     }
 
     public static function balance()
