@@ -11,7 +11,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/configs/forjawaly.php', 'forjawaly');
 
         $this->publishes([
-            __DIR__.'/configs/forjawaly.php' => config_path('4awaly.php'),
+            __DIR__.'/configs/forjawaly.php' => config_path('forjawaly.php'),
         ]);
     }
 
