@@ -7,7 +7,6 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
 
     public function boot()
     {
-        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
         $this->mergeConfigFrom(__DIR__.'/configs/forjawaly.php', 'forjawaly');
 
         $this->publishes([
