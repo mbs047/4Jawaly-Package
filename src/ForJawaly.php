@@ -41,7 +41,11 @@ class ForJawaly
                 echo "Sent Successfully " . " job id:" . $response_json["job_id"];
             }
         } elseif ($status_code == 400) {
-            echo $response_json["message"];
+            echo array([
+                "Sender Name" => config('forjawaly.sender'),
+                "Message Content" => $message,
+                "Error Message" => $response_json["message"]
+            ]);
         } elseif ($status_code == 422) {
             echo "Message body is empty; Please write something.";
         } else {
