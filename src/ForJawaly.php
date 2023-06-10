@@ -22,7 +22,7 @@ class ForJawaly
             ]
         ];
         
-        $url = "https://api-sms.forjawaly.com/api/v1/account/area/sms/send";
+        $url = "https://api-sms.4jawaly.com/api/v1/account/area/sms/send";
         $headers = [
             "Accept" => "application/json",
             "Content-Type" => "application/json",
