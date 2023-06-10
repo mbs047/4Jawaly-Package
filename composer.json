@@ -1,0 +1,29 @@
+{
+    "name": "devhereco/4jawaly",
+    "description": "A Laravel package for 4 Jawaly SMS API.",
+    "keywords": ["laravel", "firebase", "firebase", "sdk", "api", "database", "fcm", "gcm"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "MohammedSB",
+            "email": "mohammed.b.dev@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Devhereco\\4Jawaly\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Devhereco\\4Jawaly\\ServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "guzzlehttp/guzzle": "^7.4"
+    }
+}
