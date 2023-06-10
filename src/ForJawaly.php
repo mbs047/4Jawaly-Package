@@ -18,7 +18,7 @@ class ForJawaly
                 [
                     "text" => $message,
                     "numbers" => [$phone],
-                    "sender" => "forjawaly"
+                    "sender" => config('forjawaly.sender')
                 ]
             ]
         ];
